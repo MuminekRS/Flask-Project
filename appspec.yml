@@ -1,5 +1,5 @@
 version: 0.0
-os: Centos 7
+os: linux
 files:
   - source: /
     destination: /home/ubuntu/Flask-App
