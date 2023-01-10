@@ -7,7 +7,7 @@ hooks:
   AplicationStop:
     - location: scripts/app_stop.sh
       timeout: 100
-      runas: ubuntu
+      runas: root
   AplicationStart:
     - location: scripts/start_app.sh
       timeout: 100
