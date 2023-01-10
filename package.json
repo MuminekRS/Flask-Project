@@ -1,0 +1,7 @@
+{
+    "name": "Flask-Project",
+    "version": "0.0.1",
+    "dependencies": {
+        "python3": "3.6.9"
+    }
+}

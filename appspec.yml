@@ -1,0 +1,14 @@
+version: 0.0
+os: Centos 7
+files:
+  - source: /
+    destination: /home/ubuntu/Flask-App
+hooks:
+  AplicationStop:
+    - location: scripts/app_stop.sh
+      timeout: 100
+      runas: ubuntu
+  AplicationStart:
+    - location: scripts/start_app.sh
+      timeout: 100
+      runas: ubuntu
