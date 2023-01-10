@@ -9,4 +9,4 @@ else
 
 sudo chmod -R 777 /home/ubuntu/Flask-App
 cd /home/ubuntu/Flask-App
-nohup python3 main.py > /dev/null 2>&1 &
+sudo nohup python3 main.py > /dev/null 2>&1 &
