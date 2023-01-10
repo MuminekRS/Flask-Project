@@ -3,5 +3,5 @@
 echo "Stop any exist main.py"
 
 
-pgrep -f  "main.py" | xargs kill -9 > /dev/null 2>&1 &
-chmod -R 777 /home/ubuntu/Flask-App
+ps -auf | grep main.py | sudo awk  '{system("sudo kill -9 "$2)}' > /dev/null 2>&1 &
+sudo chmod -R 777 /home/ubuntu/Flask-App
