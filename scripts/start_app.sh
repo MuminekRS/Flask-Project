@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-rm /home/ubuntu/*
+rm -r /home/ubuntu/*
