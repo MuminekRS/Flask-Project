@@ -6,9 +6,9 @@ files:
 hooks:
   AplicationStop:
     - location: scripts/app_stop.sh
-      timeout: 100
+      timeout: 5
       runas: ubuntu
   AplicationStart:
     - location: scripts/start_app.sh
-      timeout: 100
+      timeout: 5
       runas: ubuntu
