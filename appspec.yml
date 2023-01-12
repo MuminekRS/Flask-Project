@@ -4,7 +4,16 @@ files:
   - source: /
     destination: /home/ubuntu/Flask-Project
 hooks:
-  AplicationStart:
+  BeforeInstall:
     - location: scripts/start_app.sh
-      timeout: 5
-      runas: root
+    - location: scripts/start_app.sh
+  AfterInstall:
+    - location: scripts/start_app.sh
+      timeout: 180
+  ApplicationStart:
+    - location: scripts/start_app.sh
+      timeout: 3600
+  ValidateService:
+    - location: scripts/start_app.sh
+      timeout: 3600
+      runas: ubuntu

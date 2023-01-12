@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-sudo rm -r /home/ubuntu/*
+sudo mkdir /home/ute/siema
