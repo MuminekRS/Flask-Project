@@ -5,7 +5,7 @@ files:
     destination: /home/ubuntu/Flask-Project
 hooks:
   BeforeInstall:
-    - location: scripts/start_app.sh
-  AfterInstall:
     - location: scripts/app_stop.sh
+  AfterInstall:
+    - location: scripts/start_stop.sh
       timeout: 180
