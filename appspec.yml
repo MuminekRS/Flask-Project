@@ -7,7 +7,7 @@ hooks:
   BeforeInstall:
     - location: scripts/app_stop.sh
   AfterInstall:
-    - location: Scripts/change_mode.sh
+    - location: scripts/change_mode.sh
       timeout: 50
   ApplicationStart:
     - location: scripts/start_app.sh
