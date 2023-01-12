@@ -1,7 +1,3 @@
-from flask import Blueprint, Markup, render_template
-views = Blueprint('views', __name__)
-
-
 import mariadb
 import sys
 
@@ -25,10 +21,6 @@ def set_up_connection():
 
     return conn,cur
 
-def close_connection(conn,cur):
-    cur.close()
-    conn.close()
-
 def add_data_to_DB(first_name, password, email):
     conn, cur = set_up_connection()
     try:
@@ -43,29 +35,4 @@ def add_data_to_DB(first_name, password, email):
         conn.commit()
         cur.close()
         conn.close()
-
-def return_dict_for_chart(Table_name,range):
-    conn, cur = set_up_connection()
-    try:
-        cur.execute(
-            f"SELECT date,value FROM {Table_name} ORDER BY ID DESC LIMIT {range};"
-        )
-        # data = dict((key,value) for key, value in cur)
-        dicto = {}
-        for i in cur:
-            a = i[0].split("-")
-            date = tuple((int(i) -1) if a.index(i) ==1 else int(i) for i in a)
-            dicto[date] = i[1]
-        return dicto
-    except mariadb.ProgrammingError as e:
-        print(f"Nie udało sie sprawdzić danych gdyż {e}")
-        close_connection(conn,cur)
-
-
-@views.route('/')
-def home():
-    return render_template('home.html', values=return_dict_for_chart("Dolars",18))
-
-
-
 

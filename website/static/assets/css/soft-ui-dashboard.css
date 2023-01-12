@@ -345,6 +345,12 @@ svg {
     vertical-align: middle;
 }
 
+.img3 {
+    border-radius: 50%;
+}
+
+
+
 table {
     caption-side: bottom;
     border-collapse: collapse;
@@ -4734,6 +4740,27 @@ fieldset:disabled .btn {
     padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
 
+
+.navbar-round {
+    border: none;
+    background: none;
+    padding: 0px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.button-3 {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
 .navbar>.container,
 .navbar>.container-fluid,
 .navbar>.container-sm,
@@ -4774,6 +4801,7 @@ fieldset:disabled .btn {
     list-style: none;
 }
 
+
 .navbar-nav .show>.nav-link,
 .navbar-nav .nav-link.active {
     color: var(--bs-navbar-active-color);
@@ -4810,6 +4838,10 @@ fieldset:disabled .btn {
     border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
     border-radius: var(--bs-navbar-toggler-border-radius);
     transition: var(--bs-navbar-toggler-transition);
+}
+
+.navbar5 {
+    border-radius: 50%;
 }
 
 @media (prefers-reduced-motion: reduce) {

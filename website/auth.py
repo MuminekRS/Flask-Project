@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, Markup, render_template, request
 import mariadb
 import sys
 
@@ -22,6 +22,10 @@ def set_up_connection():
 
     return conn,cur
 
+def close_connection(conn,cur):
+    cur.close()
+    conn.close()
+
 def add_data_to_DB(first_name, password, email):
     conn, cur = set_up_connection()
     try:
@@ -37,7 +41,21 @@ def add_data_to_DB(first_name, password, email):
         cur.close()
         conn.close()
 
+def return_dict_for_chart(Table_name,range):
+    conn, cur = set_up_connection()
+    try:
+        cur.execute(
+            f"SELECT date,value FROM {Table_name} ORDER BY ID DESC LIMIT {range};"
+        )
+        data = dict((key,value) for key, value in cur)
 
+        return dict(((date.replace("-",","),),value) for date, value in data.items())
+
+    except mariadb.ProgrammingError as e:
+        print(f"Nie udało sie sprawdzić danych gdyż {e}")
+        close_connection(conn,cur)
+
+    
 
 auth = Blueprint('auth', __name__)
 
