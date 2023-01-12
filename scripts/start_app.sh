@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-sudo mkdir /home/ute/siema
+sudo nohup python3 main.py > /dev/null 2>&1 &

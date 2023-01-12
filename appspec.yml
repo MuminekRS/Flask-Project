@@ -6,14 +6,6 @@ files:
 hooks:
   BeforeInstall:
     - location: scripts/start_app.sh
-    - location: scripts/start_app.sh
   AfterInstall:
-    - location: scripts/start_app.sh
+    - location: scripts/app_stop.sh
       timeout: 180
-  ApplicationStart:
-    - location: scripts/start_app.sh
-      timeout: 3600
-  ValidateService:
-    - location: scripts/start_app.sh
-      timeout: 3600
-      runas: ubuntu
