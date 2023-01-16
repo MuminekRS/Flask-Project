@@ -2,16 +2,37 @@
 {% block title %}Home{% endblock %}
 
 {% block content%}
-<h1>Check Current Value For Some Kurwa Money</h1>
+<h1>Check Current Value For Kurwa Money</h1>
 <div class="card-body p-3">
     <div class="chart">
+        <form method="POST" onkeydown="return event.key != 'Enter';">
+            <div class="button">
+                <h4>Chose currency</h4>
+                <button type="submit" id="USD" name="chart_button" value="USD" class="btn btn-primary">USD</button>
+                <button type="submit" id="GBP" name="chart_button" value="GBP" class="btn btn-primary">GBP</button>
+                <button type="submit" id="EUR" name="chart_button" value="EUR" class="btn btn-primary">EUR</button>
+                <button type="submit" id="5" name="range_days" value="5" class="btn btn-primary" style="float: right;">5
+                    Days</button>
+                <button type="submit" id="30" name="range_days" value="30" class="btn btn-primary"
+                    style="float: right;">30
+                    Days</button>
+                <button type="submit" id="90" name="range_days" value="90" class="btn btn-primary"
+                    style="float: right;">90
+                    Days</button>
+            </div>
+        </form>
+        <form method="POST">
+            <input type="text" name="range_days" class="form-control-size" placeholder="Your own Range"
+                aria-label="Range" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                style="float: right;"><br>
+        </form>
         <script>
             window.onload = function () {
 
                 var chart = new CanvasJS.Chart("chartContainer", {
                     animationEnabled: true,
                     title: {
-                        text: "$$$$$$$$$$$"
+                        text: "{{ currency }}"
                     },
                     axisX: {
                         title: "Date",
@@ -20,7 +41,7 @@
                     },
                     axisY: {
                         title: "Polish Kurwa Złoty",
-                        suffix: "Zł",
+                        suffix: " Zł",
                         // includeZero: true
                     },
                     data: [{
@@ -33,7 +54,7 @@
                             {% for key, value in values.items() %}
                 { x: new Date{{ key }}, y: {{ value }}},
             {% endfor %}
-        ]
+            ]
     }]
 });
             chart.render();
